@@ -4,9 +4,10 @@ var clients = [];
 var server = http.createServer(function(request, response) {
 	console.log("Server created");
 });
+	var port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+	var ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 
-
-server.listen(1234, function() {
+server.listen(port,ip_address, function() {
     console.log((new Date()) + ' Server is listening on port 1234');
 });
 
